@@ -6,12 +6,13 @@ public:
         for(int i = 0; i < n; i++) {
             string temp = "";
             string sorted = "";
-            for(int j = 0; j < strs.size(); j++) {
-                temp += strs[j][i];
-                sorted += strs[j][i];
+            for(int j = 1; j < strs.size(); j++) {
+                //cout << strs[j-1][i] << " " << strs[j][i] << "\n";
+                if(strs[j][i] < strs[j-1][i]) {
+                    res++;
+                    break;
+                }
             }
-            sort(sorted.begin(), sorted.end());
-            if(temp != sorted) res++;
         }
         return res;
     }

@@ -21,10 +21,11 @@ public:
                 lastpoint = point[1];
             }
             /* updating the range since it's sorted using the start,
-             * so we can check if the next ballon is outside our current range.
-             * for example [1, 10], [2, 6], [7, 12].
-             * we start with 10, and then we have 6 which is < 10,
-             * if we didn't update the range, it will include [7, 12] with us, even though it's out of range [1, 10].
+             * we are looking for a x value, that bursts all the ballons in an interval, so we use the minimum end to see if there's is a value that meets that.
+             * for example [[9,12],[1,10],[4,11],[8,12],[3,9],[6,9],[6,7]]
+             * the least value is 7, but we have intervals starts from 8 and 9, if we hit 7 we will need another arrow to burst the remaining ballons.
+             * But if we removed [6, 7], the least end becomes 9.
+             * so we can use numebr 9, and it will cover all intervals.
              */
             lastpoint = min(point[1], lastpoint);
         }

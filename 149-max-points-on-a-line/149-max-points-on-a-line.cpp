@@ -14,7 +14,7 @@ public:
                 double p2_y = points[j][1];
                 double slope = 0;
                 if(p2_x == p1_x) {
-                    slope = (1 << 30);  
+                    slope = (1 << 30); // imitates infinity  
                 } else {
                     slope = (double)(p2_y - p1_y) / (double)(p2_x - p1_x);
                 }
